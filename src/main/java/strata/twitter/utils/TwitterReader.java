@@ -56,8 +56,13 @@ public class TwitterReader implements Runnable {
 	protected Tweet parseTweet(String json) {
 		JSONParser jsonParser = new JSONParser();
 
-		JSONObject jsonObject = (JSONObject) jsonParser.parse(json);
-		
+        JSONObject jsonObject = null;
+        try {
+		    jsonObject = (JSONObject) jsonParser.parse(json);
+        } catch(ParseException e) {
+            throw new RuntimeException(e);
+        }
+
 		String orginalUser = null;
 		if(jsonObject.containsKey("user")) {
 			JSONObject userData = (JSONObject) jsonObject.get("user");
@@ -77,7 +82,7 @@ public class TwitterReader implements Runnable {
 		}
 		return null; // TODO implement
 	}
-	
+
 	@Override
 	public void run() {
 		/*
