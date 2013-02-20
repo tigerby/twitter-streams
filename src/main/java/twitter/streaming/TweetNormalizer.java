@@ -77,7 +77,8 @@ public class TweetNormalizer implements IRichBolt{
                     List a = new ArrayList();
                     a.add(tuple);
 
-                    if(this.LANG.equals(location) && !ignoreWords.contains(word)) {
+//                    if(this.LANG.equals(location) && !ignoreWords.contains(word)) {
+                    if(!ignoreWords.contains(word)) {
                         collector.emit(a,new Values(word));
                     }
                 }
