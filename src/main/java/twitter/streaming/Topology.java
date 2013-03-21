@@ -25,8 +25,8 @@ public class Topology {
 		
 		Config conf = new Config();
 		int i = 0;
-		conf.put("redisHost",args[i++]);
-		conf.put("redisPort", new Integer(args[i++]));
+		conf.put("infinispanHost",args[i++]);
+		conf.put("infinispanPort", new Integer(args[i++]));
 		conf.put("track", args[i++]);
 		conf.put("user", args[i++]);
 		conf.put("password", args[i++]);

@@ -16,19 +16,20 @@ import backtype.storm.topology.TopologyBuilder;
 public class SampleTopology {
 	public static void main(String[] args) throws InterruptedException, AlreadyAliveException, InvalidTopologyException {
 		TopologyBuilder builder = new TopologyBuilder();
-		builder.setSpout("tweets-collector", new SampleApiStreamingSpout(),1);
-		builder.setBolt("tweet-normalizer", new TweetNormalizer()).
+		builder.setSpout("tweets-collector", new SampleApiStreamingSpout(), 2);
+		builder.setBolt("tweet-normalizer", new TweetNormalizer(), 4).
 			shuffleGrouping("tweets-collector"); 
-		builder.setBolt("tweets-saver", new TweetKeywordCountSaver()).
+		builder.setBolt("tweets-saver", new TweetKeywordCountSaver(), 4).
 			shuffleGrouping("tweet-normalizer");
 		
 		Config conf = new Config();
 		int i = 0;
-		conf.put("redisHost",args[i++]);
-		conf.put("redisPort", new Integer(args[i++]));
+		conf.put("infinispanHost",args[i++]);
+		conf.put("infinispanPort", new Integer(args[i++]));
 		conf.put("user", args[i++]);
 		conf.put("password", args[i++]);
 		i++;
+
 		if(args.length <= i || args[i].equals("local")){
 			LocalCluster cluster = new LocalCluster();
 			cluster.submitTopology("twitter-sample-summarizer", conf, builder.createTopology());

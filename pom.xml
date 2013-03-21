@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>storm.book</groupId>
-  <artifactId>Strata2012</artifactId>
+  <groupId>com.tiger</groupId>
+  <artifactId>TweetSampleTop10</artifactId>
   <version>0.0.1</version>
   
   	
@@ -52,7 +52,13 @@
         	<type>jar</type>
         	<scope>compile</scope>
         </dependency>
+      <dependency>
+          <groupId>org.infinispan</groupId>
+          <artifactId>infinispan-core</artifactId>
+          <version>5.2.1.Final</version>
+      </dependency>
 
+      <!--junit dependency-->
       <dependency>
           <groupId>junit</groupId>
           <artifactId>junit</artifactId>

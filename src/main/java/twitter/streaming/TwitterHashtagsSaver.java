@@ -41,9 +41,9 @@ public class TwitterHashtagsSaver extends BaseBasicBolt implements ExpiredCallba
 
 	@Override
 	public void prepare(Map stormConf, TopologyContext context) {
-		String redisHost = (String) stormConf.get("redisHost");
-		Integer redisPort = ((Long) stormConf.get("redisPort")).intValue();
-		this.jedis = new Jedis(redisHost, redisPort);
+		String infinispanHost = (String) stormConf.get("infinispanHost");
+		Integer infinispanPort = ((Long) stormConf.get("infinispanPort")).intValue();
+		this.jedis = new Jedis(infinispanHost, infinispanPort);
 		this.jedis.connect();
 		cacheMap = new TimeCacheMap<String, Integer>(10, this);
 	}

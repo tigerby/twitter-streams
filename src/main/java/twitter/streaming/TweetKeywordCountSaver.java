@@ -56,9 +56,9 @@ public class TweetKeywordCountSaver implements IRichBolt, ExpiredCallback<String
         this.name = context.getThisComponentId();
         this.id = context.getThisTaskId();
 
-		String redisHost = (String) conf.get("redisHost");
-		Integer redisPort = ((Long) conf.get("redisPort")).intValue();
-		this.jedis = new Jedis(redisHost, redisPort);
+		String infinispanHost = (String) conf.get("infinispanHost");
+		Integer infinispanPort = ((Long) conf.get("infinispanPort")).intValue();
+		this.jedis = new Jedis(infinispanHost, infinispanPort);
 		this.jedis.connect();
 		cacheMap = new TimeCacheMap<String, Integer>(10, this);
 	}
