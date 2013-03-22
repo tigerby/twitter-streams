@@ -1,4 +1,4 @@
-package twitter.streaming;
+package com.tiger.bolt;
 
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;

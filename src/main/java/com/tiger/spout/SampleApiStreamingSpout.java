@@ -1,4 +1,4 @@
-package twitter.streaming;
+package com.tiger.spout;
 
 import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;

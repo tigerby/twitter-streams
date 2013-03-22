@@ -1,16 +1,13 @@
-package twitter.streaming;
+package com.tiger.bolt;
 
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
-import backtype.storm.topology.BasicOutputCollector;
 import backtype.storm.topology.IRichBolt;
 import backtype.storm.topology.OutputFieldsDeclarer;
-import backtype.storm.topology.base.BaseBasicBolt;
 import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
 import org.apache.log4j.Logger;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -24,10 +21,10 @@ import java.util.*;
  * @author <a href="mailto:bongyeonkim@gmail.com">Kim Bryan</a>
  * @version 1.0
  */
-public class TweetNormalizer implements IRichBolt{
+public class WordNormalizer implements IRichBolt{
 	private static final long serialVersionUID = -3025639777071957758L;
 
-    static Logger LOG = Logger.getLogger(TweetNormalizer.class);
+    static Logger LOG = Logger.getLogger(WordNormalizer.class);
 
 	static JSONParser jsonParser = new JSONParser();
 
